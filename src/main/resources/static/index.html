@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111112">
+  <meta name="description" content="Discover films, compare nearby cinemas and find your next showtime with CineVerse.">
+  <title>CineVerse — find your next film</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css?v=23">
+  <script src="/js/api.js?v=9" defer></script>
+  <script src="/js/app.js?v=24" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#/" aria-label="CineVerse home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M6 4.8v10.4L15 10 6 4.8Z" fill="currentColor"/></svg>
+        </span>
+        <span>CineVerse</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" data-route="home" href="#/">Home</a>
+        <a class="nav-link" data-route="movies" href="#/movies">Movies</a>
+        <a class="nav-link" data-route="bookings" href="#/bookings">My Bookings</a>
+        <span class="auth-nav" id="auth-nav" aria-live="polite"></span>
+      </nav>
+      <div class="nav-side">
+        <label class="city-picker" for="city-selector">
+          <span class="visually-hidden">Choose city</span>
+          <select id="city-selector" aria-label="Choose city">
+            <option value="">All cities</option>
+          </select>
+        </label>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+          <span aria-hidden="true">☼</span>
+        </button>
+        <span class="nav-note"><span class="live-dot" aria-hidden="true"></span> Your local cinema guide</span>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a class="nav-search" href="#/movies" aria-label="Search movies">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8" stroke="currentColor" stroke-width="1.6"/><path d="m13.2 13.2 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main id="app" tabindex="-1" aria-live="polite"></main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand" href="#/" aria-label="CineVerse home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M6 4.8v10.4L15 10 6 4.8Z" fill="currentColor"/></svg></span>
+        <span>CineVerse</span>
+      </a>
+      <span>Find the film. Find your seat in the story.</span>
+      <span class="footer-note"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.7 13 3.5v3.8c0 3.2-2.1 5.5-5 7-2.9-1.5-5-3.8-5-7V3.5l5-1.8Z" stroke="currentColor" stroke-width="1.2"/><path d="m5.7 7.9 1.5 1.5 3.2-3.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Demo bookings only · no payments</span>
+    </div>
+  </footer>
+</body>
+</html>

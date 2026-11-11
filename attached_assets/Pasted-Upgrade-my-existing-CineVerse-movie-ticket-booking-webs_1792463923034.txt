@@ -1,0 +1,74 @@
+Upgrade my existing CineVerse movie ticket booking website into a modern, complete movie discovery platform inspired by the browsing experience of major movie apps.
+
+**IMPORTANT:** Continue the existing Java Spring Boot project. Do not recreate it or break the existing seat selection, booking confirmation, My Bookings, backend APIs, or Java OOP architecture.
+
+### 1. Large online movie catalog using TMDB
+- Integrate the TMDB API through the existing Java Spring Boot backend.
+- Show a large catalog of movies from different countries and industries, including Bollywood, Hollywood, South Indian cinema, Korean, Japanese, and other international movies.
+- Support popular, trending, now-playing where available, upcoming, top-rated, and searchable movies.
+- Add pagination or Load More so users can explore many movies without loading everything at once.
+- Use real movie posters and details from TMDB.
+- Keep the TMDB API key in Replit Secrets/environment variables. Never expose it in frontend JavaScript or commit it to source code.
+- Add graceful loading, empty, and error states.
+
+### 2. Home page with horizontal movie sliders
+Create separate, attractive horizontal scrolling movie sections on the home page:
+- Trending Now
+- Popular Movies
+- Bollywood
+- Hollywood
+- South Indian Movies
+- Korean Movies
+- Japanese Movies
+- Upcoming Movies
+- Top Rated
+- Family & Animation
+- Action & Adventure
+- Horror & Thriller
+- Romance & Drama
+- Sci-Fi & Fantasy
+
+Each section should have movie poster cards in a horizontal carousel with left/right navigation arrows and smooth scrolling. On mobile, support touch swiping. Add a View All option for each section.
+
+Use TMDB genre and language/region metadata where appropriate. Do not label movies incorrectly based only on their titles.
+
+### 3. Search bar with clickable category bubbles
+Place a prominent search bar near the top of the home page.
+
+Below the search bar, show rounded, clickable category bubbles such as:
+All Movies, Trending, Bollywood, Hollywood, South Indian, Korean, Japanese, Action, Comedy, Romance, Horror, Thriller, Animation, Sci-Fi, and Upcoming.
+
+When a user clicks a bubble:
+- Show movies matching that category.
+- Update the selected bubble's visual state.
+- Allow horizontal scrolling through bubbles on smaller screens.
+- Make the search bar work together with the selected category.
+- Support searching by movie title and show useful results as the user types, with a clear-search button.
+
+### 4. Movie cards and details
+- Display posters consistently with movie titles, release years, and ratings when available.
+- Show a polished movie detail page or modal with overview, genres, release date, runtime when available, and poster/backdrop.
+- Handle missing images and metadata gracefully.
+
+### 5. Preserve the actual booking system
+- Keep existing cinema, screen, showtime, seat selection, booking confirmation, and My Bookings functionality.
+- Clearly distinguish movies available for browsing from movies that have actual bookable showtimes.
+- Show a Book Tickets button only when a real showtime exists in our current application database.
+- Do not invent cinema showtimes or claim every TMDB movie is bookable.
+- Do not add real payment processing in this task.
+
+### 6. Design and quality
+- Use a polished, responsive, dark movie-platform theme with cinematic posters, readable typography, consistent spacing, and attractive hover effects.
+- Ensure desktop, tablet, and mobile layouts work properly.
+- Avoid duplicate movie cards across sections when practical.
+- Keep the existing backend architecture and use clean Java service classes for TMDB integration.
+- Use caching or sensible request handling to avoid unnecessary repeated API calls.
+
+### 7. Before finishing
+- Inspect the existing project first and reuse its current code.
+- If the TMDB API key is not configured, explain exactly how to configure it and provide a useful fallback state.
+- Run all existing Maven tests and fix regressions.
+- Test search, category filters, sliders, poster loading, pagination, and existing booking functionality.
+- Report which features work and which require API credentials or further setup.
+
+Implement this in stages if necessary, and do not remove existing working functionality.

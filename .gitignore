@@ -1,0 +1,17 @@
+
+target/
+.idea/
+.vscode/
+*.iml
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+application-local.properties
+application-secret.properties
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
