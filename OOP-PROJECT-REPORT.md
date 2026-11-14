@@ -23,157 +23,17 @@ This separation keeps HTTP concerns, business rules, persistence, and domain dat
 
 ### 2.1 Class diagram
 
-The diagram presents the central domain objects, representative fields and operations, and their key associations. `BookingSeat` and `BookingFoodItem` record the items belonging to a booking. The diamond indicates lifecycle-dependent composition in the persistence model.
+The landscape diagram shows the core JPA entities, selected implemented attributes and operations, and the `BookingService` and `ShowService`. Multiplicities follow the mapped relationships and request constraints. Filled diamonds are limited to lifecycle-dependent collections (`Screen.seats`, `Show.bookings`, and the two `Booking` item collections); the dashed dependency shows `BookingService` creating and managing `Booking`. The selected domain and service classes have no aggregation or inheritance relationship, so neither is implied. The exception inheritance hierarchy is described in Section 3.
 
-```mermaid
-classDiagram
-    class Movie {
-        -Long id
-        -String title
-        -String genre
-        -String language
-        -Integer durationMinutes
-        -BigDecimal rating
-        -LocalDate releaseDate
-        +updateDetails(...)
-        +getTitle()
-    }
+<img src="./report-diagrams/class-diagram.svg" alt="CineVerse UML class diagram showing core entities, services, attributes, operations, associations, compositions, dependencies and multiplicities" />
 
-    class Cinema {
-        -Long id
-        -String name
-        -String address
-        -String city
-        -List~String~ facilities
-        +updateDetails(...)
-        +getFacilities()
-    }
-
-    class Screen {
-        -Long id
-        -String name
-        -Integer rowCount
-        -Integer seatsPerRow
-        -Integer totalSeatCapacity
-        +getTotalSeatCapacity()
-    }
-
-    class Seat {
-        -Long id
-        -Integer rowNumber
-        -String rowLabel
-        -Integer seatNumber
-        +getLabel()
-    }
-
-    class Show {
-        -Long id
-        -LocalDateTime startTime
-        -LocalDateTime endTime
-        -BigDecimal ticketPrice
-        -ShowStatus status
-        +setTicketPrice(price)
-        +getStatus()
-    }
-
-    class CustomerAccount {
-        -Long id
-        -String email
-        -String displayName
-        -String passwordHash
-        -AccountRole role
-        -LocalDateTime createdAt
-    }
-
-    class Booking {
-        -Long id
-        -String bookingReference
-        -BookingStatus status
-        -BigDecimal totalPrice
-        -BigDecimal seatSubtotal
-        -BigDecimal foodSubtotal
-        -LocalDateTime createdAt
-        +addSeat(seat)
-        +addFoodItem(...)
-        +cancel(reason)
-        +requestAftercare(type)
-    }
-
-    class BookingSeat {
-        -Long id
-    }
-
-    class BookingFoodItem {
-        -Long id
-        -String itemId
-        -String name
-        -int quantity
-        -BigDecimal unitPrice
-    }
-
-    class BookingService {
-        +getSeatsForShow(showId)
-        +createBooking(request, accountId)
-        +cancelBooking(...)
-        +requestAftercare(...)
-    }
-
-    class ShowService {
-        +getAllShows()
-        +createShow(request)
-        +updateTicketPrice(id, price)
-    }
-
-    Cinema "1" -- "0..*" Screen : contains
-    Screen "1" *-- "1..*" Seat : defines seating
-    Screen "1" -- "0..*" Show : schedules
-    Movie "1" -- "0..*" Show : is screened in
-    Show "1" -- "0..*" Booking : is booked for
-    CustomerAccount "0..1" -- "0..*" Booking : owns
-    Booking "1" *-- "0..*" BookingSeat : contains
-    Seat "1" -- "0..*" BookingSeat : is reserved by
-    Booking "1" *-- "0..*" BookingFoodItem : contains
-    BookingService ..> Booking : creates and manages
-    BookingService ..> BookingSeat : records selected seats
-    ShowService ..> Show : creates and updates
-```
-
-In the diagram, one `Show` belongs to exactly one `Movie` and one `Screen`; the opposite ends can have multiple shows. A booking can be associated with a customer account, while the domain model permits the account reference to be absent. Seat reservation records connect a booking, a show, and a physical seat.
+`BookingSeat` is the reservation link between one `Booking`, one `Show`, and one physical `Seat`. A `Booking` may have no `CustomerAccount` because the mapped account reference is nullable; the booking endpoint itself requires an authenticated customer.
 
 ### 2.2 Use-case diagram
 
-```mermaid
-flowchart LR
-    Customer([Customer])
-    Admin([Administrator])
-    TMDB([TMDB service])
+<img src="./report-diagrams/use-case-diagram.svg" alt="CineVerse UML use-case diagram with Customer, Administrator and TMDB API actors outside the CineVerse System boundary" />
 
-    subgraph CineVerse
-        Browse[Browse movies and categories]
-        Schedule[View cinemas and showtimes]
-        Account[Register, sign in, and sign out]
-        Seats[View seat availability]
-        Book[Book seats and optional food]
-        Manage[View or manage own bookings]
-        AdminDash[View admin dashboard]
-        Price[Update show ticket price]
-        Discover[Retrieve live movie discovery data]
-    end
-
-    Customer --> Browse
-    Customer --> Schedule
-    Customer --> Account
-    Customer --> Seats
-    Customer --> Book
-    Customer --> Manage
-    Admin --> Account
-    Admin --> AdminDash
-    Admin --> Price
-    Browse --> Discover
-    Discover --> TMDB
-```
-
-The administrator signs in through an admin flow and must have the server-side `ADMIN` role to access administrative operations. Live discovery is optional; the local catalog remains available when TMDB is not configured.
+The administrator uses the separate admin sign-in and must pass the configured administrator ID check and have the server-side `ADMIN` role. Booking and own-booking management require a signed-in customer; registration and sign-in establish that session. Live TMDB discovery is optional, and the local catalog remains available when TMDB is not configured. Food is optional in the booking request, so it is shown as part of the booking use case rather than as an invented include/extend dependency. Payment is simulated; no payment gateway actor is implemented.
 
 ### 2.3 Booking sequence diagram
 

@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="210mm" viewBox="0 0 1123 794" role="img" aria-labelledby="title description">
+  <title id="title">CineVerse UML class diagram</title>
+  <desc id="description">Core JPA entities, selected Java members, and service dependencies in CineVerse.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #173b63; }
+      .meta { font-size: 10px; font-weight: 700; letter-spacing: 1.15px; fill: #64778b; }
+      .page-title { font-size: 21px; font-weight: 700; }
+      .subtitle { font-size: 10px; fill: #64778b; }
+      .class-box { fill: #f5f8fc; stroke: #173b63; stroke-width: 1.45; }
+      .compartment { stroke: #9fb1c3; stroke-width: 1; }
+      .class-name { font-size: 14px; font-weight: 700; text-anchor: middle; }
+      .stereotype { font-size: 9px; font-weight: 600; text-anchor: middle; fill: #61758b; }
+      .member { font-size: 11px; fill: #213d5a; }
+      .member-small { font-size: 10px; fill: #213d5a; }
+      .association { fill: none; stroke: #536f8c; stroke-width: 1.3; }
+      .composition { fill: #173b63; stroke: #173b63; stroke-width: 1; }
+      .dependency { fill: none; stroke: #536f8c; stroke-width: 1.35; stroke-dasharray: 6 4; marker-end: url(#dependency-arrow); }
+      .relationship-label { font-size: 9px; fill: #536f8c; paint-order: stroke; stroke: #ffffff; stroke-width: 3px; stroke-linejoin: round; }
+      .multiplicity { font-size: 9px; font-weight: 700; fill: #173b63; paint-order: stroke; stroke: #ffffff; stroke-width: 3px; stroke-linejoin: round; }
+      .legend { font-size: 9px; fill: #536f8c; }
+      .footer { font-size: 8px; fill: #74869a; letter-spacing: .3px; }
+    </style>
+    <marker id="dependency-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 L9 4 L1 7" fill="none" stroke="#536f8c" stroke-width="1.15"/>
+    </marker>
+  </defs>
+
+  <rect width="1123" height="794" fill="#ffffff"/>
+  <text class="meta" x="30" y="25">CINEVERSE  /  OBJECT-ORIENTED MODELING</text>
+  <text class="footer" x="1092" y="25" text-anchor="end">3</text>
+  <text class="page-title" x="30" y="53">2.1 Class diagram</text>
+  <text class="subtitle" x="30" y="70">Core entities/services · selected members · filled diamonds show JPA lifecycle ownership; dashed arrow shows BookingService's dependency on Booking.</text>
+  <text class="subtitle" x="30" y="82">Multiplicity follows mappings and request constraints. No aggregation/generalization in this model; exception inheritance is in Section 3.</text>
+  <line x1="30" y1="101" x2="52" y2="101" class="association"/>
+  <text class="legend" x="58" y="104">association</text>
+  <path class="composition" d="M145 101 l6 5 -6 5 -6 -5 z"/>
+  <text class="legend" x="156" y="104">composition (filled diamond)</text>
+  <line x1="315" y1="101" x2="346" y2="101" class="dependency"/>
+  <text class="legend" x="354" y="104">service dependency (dashed arrow)</text>
+
+  <g class="association">
+    <path d="M190 255 L190 310"/>
+    <path d="M560 295 L560 315"/>
+    <path d="M930 265 L930 315"/>
+    <path d="M190 470 L190 530"/>
+    <path d="M340 402 L410 402"/>
+    <path d="M710 404 L780 404"/>
+    <path d="M560 505 L560 535"/>
+    <path d="M340 600 L410 600"/>
+    <path d="M810 505 L710 540"/>
+    <path d="M930 505 L930 535"/>
+  </g>
+  <g class="dependency">
+    <path d="M1080 740 L1104 740 L1104 404 L1080 404"/>
+  </g>
+
+  <g transform="translate(40 110)">
+    <rect class="class-box" width="300" height="145" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">Cinema</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- name: String</text>
+    <text class="member" x="12" y="77">- address: String</text>
+    <text class="member" x="12" y="92">- city: String</text>
+    <text class="member" x="12" y="107">- facilities: List&lt;String&gt;</text>
+    <line class="compartment" x1="0" y1="115" x2="300" y2="115"/>
+    <text class="member" x="12" y="133">+ getFacilities(): List&lt;String&gt;</text>
+  </g>
+
+  <g transform="translate(410 110)">
+    <rect class="class-box" width="300" height="185" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">Movie</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- title: String</text>
+    <text class="member" x="12" y="77">- genre: String</text>
+    <text class="member" x="12" y="92">- language: String</text>
+    <text class="member" x="12" y="107">- durationMinutes: Integer</text>
+    <text class="member" x="12" y="122">- rating: BigDecimal</text>
+    <text class="member" x="12" y="137">- releaseDate: LocalDate</text>
+    <line class="compartment" x1="0" y1="145" x2="300" y2="145"/>
+    <text class="member" x="12" y="163">+ updateDetails(...): void</text>
+    <text class="member" x="12" y="178">+ getTitle(): String</text>
+  </g>
+
+  <g transform="translate(780 110)">
+    <rect class="class-box" width="300" height="155" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">CustomerAccount</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- email: String</text>
+    <text class="member" x="12" y="77">- displayName: String</text>
+    <text class="member" x="12" y="92">- passwordHash: String</text>
+    <text class="member" x="12" y="107">- role: AccountRole</text>
+    <text class="member" x="12" y="122">- createdAt: LocalDateTime</text>
+    <line class="compartment" x1="0" y1="130" x2="300" y2="130"/>
+    <text class="member" x="12" y="148">+ getRole(): AccountRole</text>
+  </g>
+
+  <g transform="translate(40 315)">
+    <rect class="class-box" width="300" height="155" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">Screen</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- name: String</text>
+    <text class="member" x="12" y="77">- rowCount: Integer</text>
+    <text class="member" x="12" y="92">- seatsPerRow: Integer</text>
+    <text class="member" x="12" y="107">- totalSeatCapacity: Integer</text>
+    <line class="compartment" x1="0" y1="115" x2="300" y2="115"/>
+    <text class="member-small" x="12" y="132">+ getTotalSeatCapacity(): Integer</text>
+    <text class="member" x="12" y="148">+ getCinema(): Cinema</text>
+  </g>
+
+  <g transform="translate(410 315)">
+    <rect class="class-box" width="300" height="190" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">Show</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- startTime: LocalDateTime</text>
+    <text class="member" x="12" y="77">- endTime: LocalDateTime</text>
+    <text class="member" x="12" y="92">- ticketPrice: BigDecimal</text>
+    <text class="member" x="12" y="107">- status: ShowStatus</text>
+    <line class="compartment" x1="0" y1="115" x2="300" y2="115"/>
+    <text class="member-small" x="12" y="132">+ setTicketPrice(BigDecimal): void</text>
+    <text class="member" x="12" y="147">+ getStatus(): ShowStatus</text>
+    <text class="member" x="12" y="162">+ getMovie(): Movie</text>
+    <text class="member" x="12" y="177">+ getScreen(): Screen</text>
+  </g>
+
+  <g transform="translate(780 315)">
+    <rect class="class-box" width="300" height="190" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">Booking</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- bookingReference: String</text>
+    <text class="member" x="12" y="77">- status: BookingStatus</text>
+    <text class="member" x="12" y="92">- totalPrice: BigDecimal</text>
+    <text class="member" x="12" y="107">- createdAt: LocalDateTime</text>
+    <line class="compartment" x1="0" y1="115" x2="300" y2="115"/>
+    <text class="member-small" x="12" y="132">+ addSeat(Seat): void</text>
+    <text class="member-small" x="12" y="145">+ addFoodItem(...): void</text>
+    <text class="member-small" x="12" y="158">+ cancel(String): void</text>
+    <text class="member-small" x="12" y="171">+ requestAftercare(BookingAftercareType): void</text>
+  </g>
+
+  <g transform="translate(40 530)">
+    <rect class="class-box" width="300" height="140" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">Seat</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- rowNumber: Integer</text>
+    <text class="member" x="12" y="77">- rowLabel: String</text>
+    <text class="member" x="12" y="92">- seatNumber: Integer</text>
+    <line class="compartment" x1="0" y1="100" x2="300" y2="100"/>
+    <text class="member" x="12" y="118">+ getScreen(): Screen</text>
+    <text class="member" x="12" y="133">+ getLabel(): String</text>
+  </g>
+
+  <g transform="translate(410 535)">
+    <rect class="class-box" width="300" height="140" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">BookingSeat</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <line class="compartment" x1="0" y1="55" x2="300" y2="55"/>
+    <text class="member-small" x="12" y="70">+ getId(): Long</text>
+    <text class="member-small" x="12" y="85">+ getBooking(): Booking</text>
+    <text class="member-small" x="12" y="100">+ getShow(): Show</text>
+    <text class="member-small" x="12" y="115">+ getSeat(): Seat</text>
+  </g>
+
+  <g transform="translate(780 535)">
+    <rect class="class-box" width="300" height="160" rx="4"/>
+    <line class="compartment" x1="0" y1="29" x2="300" y2="29"/>
+    <text class="class-name" x="150" y="19">BookingFoodItem</text>
+    <text class="member" x="12" y="47">- id: Long</text>
+    <text class="member" x="12" y="62">- itemId: String</text>
+    <text class="member" x="12" y="77">- name: String</text>
+    <text class="member" x="12" y="92">- quantity: int</text>
+    <text class="member" x="12" y="107">- unitPrice: BigDecimal</text>
+    <line class="compartment" x1="0" y1="115" x2="300" y2="115"/>
+    <text class="member" x="12" y="133">+ getName(): String</text>
+    <text class="member" x="12" y="148">+ getQuantity(): int</text>
+  </g>
+
+  <g transform="translate(410 700)">
+    <rect class="class-box" width="300" height="82" rx="4"/>
+    <line class="compartment" x1="0" y1="34" x2="300" y2="34"/>
+    <text class="stereotype" x="150" y="12">«service»</text>
+    <text class="class-name" x="150" y="29">ShowService</text>
+    <text class="member-small" x="12" y="49">- showRepository: ShowRepository</text>
+    <line class="compartment" x1="0" y1="55" x2="300" y2="55"/>
+    <text class="member-small" x="12" y="68">+ createShow(ShowRequest): ShowDto</text>
+    <text class="member-small" x="12" y="80">+ updateTicketPrice(Long, BigDecimal): ShowDto</text>
+  </g>
+
+  <g transform="translate(780 700)">
+    <rect class="class-box" width="300" height="82" rx="4"/>
+    <line class="compartment" x1="0" y1="34" x2="300" y2="34"/>
+    <text class="stereotype" x="150" y="12">«service»</text>
+    <text class="class-name" x="150" y="29">BookingService</text>
+    <text class="member-small" x="12" y="49">- bookingRepository: BookingRepository</text>
+    <line class="compartment" x1="0" y1="55" x2="300" y2="55"/>
+    <text class="member-small" x="12" y="68">+ createBooking(CreateBookingRequest, Long): BookingDto</text>
+    <text class="member-small" x="12" y="80">+ cancelBooking(Long, Long, String): BookingDto</text>
+  </g>
+
+  <g>
+    <path class="composition" d="M190 470 l7 6 -7 6 -7 -6 z"/>
+    <path class="composition" d="M710 404 l7 6 -7 6 -7 -6 z"/>
+    <path class="composition" d="M810 505 l7 6 -7 6 -7 -6 z"/>
+    <path class="composition" d="M930 505 l7 6 -7 6 -7 -6 z"/>
+  </g>
+  <g class="relationship-label">
+    <text x="202" y="286">contains</text>
+    <text x="718" y="301">screenings</text>
+    <text x="942" y="294">owns</text>
+    <text x="202" y="507">defines seats</text>
+    <text x="347" y="382">screened on</text>
+    <text x="717" y="386">bookings</text>
+    <text x="572" y="516">reserved for</text>
+    <text x="348" y="584">reserved</text>
+    <text x="736" y="537">seats</text>
+    <text x="946" y="526">food</text>
+    <text transform="rotate(-90 1094 610)" x="1094" y="610" text-anchor="middle">creates / manages</text>
+  </g>
+  <g class="multiplicity">
+    <text x="177" y="263">1</text><text x="176" y="307">0..*</text>
+    <text x="718" y="284">1</text><text x="718" y="318">0..*</text>
+    <text x="918" y="276">0..*</text><text x="918" y="312">0..1</text>
+    <text x="177" y="482">1</text><text x="176" y="527">1..*</text>
+    <text x="344" y="397">1</text><text x="371" y="414">0..*</text>
+    <text x="716" y="399">1</text><text x="748" y="399">0..*</text>
+    <text x="544" y="505">1</text><text x="544" y="532">0..*</text>
+    <text x="344" y="597">1</text><text x="371" y="614">0..*</text>
+    <text x="790" y="516">1</text><text x="712" y="552">1..*</text>
+    <text x="918" y="516">1</text><text x="939" y="538">0..*</text>
+  </g>
+</svg>

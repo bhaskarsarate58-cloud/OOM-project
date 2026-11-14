@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 794 1123" role="img" aria-labelledby="title description">
+  <title id="title">CineVerse UML use-case diagram</title>
+  <desc id="description">Customer and administrator interactions with CineVerse, plus the external TMDB actor.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #173b63; }
+      .meta { font-size: 11px; font-weight: 700; letter-spacing: 1.25px; fill: #64778b; }
+      .title { font-size: 25px; font-weight: 700; }
+      .subtitle { font-size: 12px; fill: #64778b; }
+      .boundary { fill: #ffffff; stroke: #173b63; stroke-width: 2.2; }
+      .system-title { font-size: 17px; font-weight: 700; }
+      .group { font-size: 10px; font-weight: 700; letter-spacing: 1px; fill: #5b6f83; }
+      .divider { stroke: #d7e0e9; stroke-width: 1.2; }
+      .usecase { fill: #f5f8fc; stroke: #244b72; stroke-width: 1.5; }
+      .usecase-label { font-size: 13px; font-weight: 500; text-anchor: middle; dominant-baseline: middle; }
+      .usecase-label-small { font-size: 11.5px; font-weight: 500; text-anchor: middle; dominant-baseline: middle; }
+      .association { fill: none; stroke: #536f8c; stroke-width: 1.35; }
+      .actor { fill: none; stroke: #173b63; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .actor-label { font-size: 12px; font-weight: 600; text-anchor: middle; }
+      .note { font-size: 10.5px; fill: #4b6178; }
+      .legend { font-size: 10px; fill: #4b6178; }
+      .footer { font-size: 9px; fill: #74869a; letter-spacing: .45px; }
+    </style>
+    <marker id="none"/>
+  </defs>
+
+  <rect width="794" height="1123" fill="#ffffff"/>
+  <text class="meta" x="42" y="34">CINEVERSE  /  OBJECT-ORIENTED MODELING</text>
+  <text class="title" x="42" y="71">2.2 Use-case diagram</text>
+  <text class="subtitle" x="42" y="94">UML 2.x · Implemented customer, administrator and external-service behavior</text>
+
+  <rect class="boundary" x="140" y="145" width="524" height="858" rx="14"/>
+  <text class="system-title" x="402" y="137" text-anchor="middle">CineVerse System</text>
+  <text class="group" x="300" y="184" text-anchor="middle">CUSTOMER OPERATIONS</text>
+  <text class="group" x="548" y="184" text-anchor="middle">ADMINISTRATIVE OPERATIONS</text>
+  <line class="divider" x1="434" y1="198" x2="434" y2="973"/>
+
+  <!-- Actor-to-use-case associations are routed as non-crossing fans. -->
+  <g class="association">
+    <path d="M101 520 L168 226"/>
+    <path d="M101 520 L168 292"/>
+    <path d="M101 520 L168 358"/>
+    <path d="M101 520 L168 424"/>
+    <path d="M101 520 L168 490"/>
+    <path d="M101 520 L168 556"/>
+    <path d="M101 520 L168 622"/>
+    <path d="M101 520 L168 688"/>
+    <path d="M101 520 L168 754"/>
+    <path d="M101 520 L168 820"/>
+    <path d="M101 520 L168 886"/>
+    <path d="M101 520 L168 952"/>
+    <path d="M700 560 L657 378"/>
+    <path d="M700 560 L657 500"/>
+    <path d="M700 560 L657 622"/>
+    <path d="M700 560 L657 744"/>
+    <path d="M700 560 L657 866"/>
+    <path d="M101 889 L168 820"/>
+  </g>
+
+  <g>
+    <ellipse class="usecase" cx="300" cy="226" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="226">Register customer account</text>
+
+    <ellipse class="usecase" cx="300" cy="292" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="292">Sign in as customer</text>
+
+    <ellipse class="usecase" cx="300" cy="358" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="358">Browse / search local movies</text>
+
+    <ellipse class="usecase" cx="300" cy="424" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="424">View movie details</text>
+
+    <ellipse class="usecase" cx="300" cy="490" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="490">View cinemas and showtimes</text>
+
+    <ellipse class="usecase" cx="300" cy="556" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="556">Check seat availability</text>
+
+    <ellipse class="usecase" cx="300" cy="622" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="622">Place booking (seats + optional food)</text>
+
+    <ellipse class="usecase" cx="300" cy="688" rx="132" ry="25"/>
+    <text class="usecase-label-small" x="300" y="682">Manage own bookings</text>
+    <text class="usecase-label-small" x="300" y="696">View / cancel / remove cancelled</text>
+
+    <ellipse class="usecase" cx="300" cy="754" rx="132" ry="25"/>
+    <text class="usecase-label-small" x="300" y="754">Request refund / exchange after cancellation</text>
+
+    <ellipse class="usecase" cx="300" cy="820" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="820">Browse live TMDB discovery</text>
+
+    <ellipse class="usecase" cx="300" cy="886" rx="132" ry="25"/>
+    <text class="usecase-label" x="300" y="886">Customer sign-out</text>
+
+    <ellipse class="usecase" cx="548" cy="378" rx="109" ry="27"/>
+    <text class="usecase-label" x="548" y="378">Administrator sign-in</text>
+
+    <ellipse class="usecase" cx="548" cy="500" rx="109" ry="27"/>
+    <text class="usecase-label" x="548" y="500">View booking dashboard</text>
+
+    <ellipse class="usecase" cx="548" cy="622" rx="109" ry="27"/>
+    <text class="usecase-label" x="548" y="622">View show listings</text>
+
+    <ellipse class="usecase" cx="548" cy="744" rx="109" ry="27"/>
+    <text class="usecase-label" x="548" y="744">Update show ticket price</text>
+
+    <ellipse class="usecase" cx="548" cy="866" rx="109" ry="27"/>
+    <text class="usecase-label" x="548" y="866">Administrator sign-out</text>
+  </g>
+
+  <g class="actor">
+    <circle cx="72" cy="493" r="13"/>
+    <path d="M72 506 L72 548 M48 521 L96 521 M72 548 L52 580 M72 548 L92 580"/>
+
+    <circle cx="729" cy="533" r="13"/>
+    <path d="M729 546 L729 588 M705 561 L753 561 M729 588 L709 620 M729 588 L749 620"/>
+
+    <circle cx="72" cy="861" r="13"/>
+    <path d="M72 874 L72 916 M48 889 L96 889 M72 916 L52 948 M72 916 L92 948"/>
+  </g>
+  <text class="actor-label" x="72" y="600">Customer</text>
+  <text class="actor-label" x="729" y="640">Administrator</text>
+  <text class="actor-label" x="72" y="967">TMDB API</text>
+
+  <line x1="42" y1="1027" x2="78" y2="1027" class="association"/>
+  <text class="legend" x="86" y="1031">Actor association</text>
+  <text class="note" x="42" y="1054">Booking and own-booking management require a signed-in customer session; registration and sign-in establish it.</text>
+  <text class="note" x="42" y="1072">Administrator actions require the configured administrator ID and an ADMIN role. TMDB discovery is optional.</text>
+  <text class="footer" x="42" y="1100">OPTIONAL FOOD IS PART OF THE BOOKING SUBMISSION; NO SEPARATE INCLUDE / EXTEND RELATIONSHIP IS NEEDED.</text>
+  <text class="footer" x="752" y="1100" text-anchor="end">CINEVERSE  ·  4</text>
+</svg>
